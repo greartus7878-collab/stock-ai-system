@@ -1,4 +1,4 @@
-name: Stock AI Live Trading
+name: Stock AI Profit Boost
 
 on:
   workflow_dispatch:
@@ -14,14 +14,11 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install Packages
-        run: pip install -r requirements.txt
+      - run: pip install -r requirements.txt
 
-      - name: ETF Rotation
-        run: python strategy/live_etf_rotation.py
-
-      - name: Position Control
-        run: python strategy/position_control.py
-
-      - name: Trade Plan
-        run: python strategy/trade_plan.py
+      - run: python strategy/live_etf_rotation.py
+      - run: python strategy/hot_sector.py
+      - run: python strategy/top5_opportunity.py
+      - run: python strategy/position_control.py
+      - run: python strategy/profit_guard.py
+      - run: python strategy/performance.py
