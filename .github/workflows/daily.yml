@@ -17,6 +17,7 @@ jobs:
 
       - run: python strategy/live_data.py
       - run: python strategy/live_etf_rotation.py
+      - run: python strategy/stock_selector.py
       - run: python strategy/position_control.py
       - run: python strategy/rebalance.py
       - run: python strategy/risk_alert.py
