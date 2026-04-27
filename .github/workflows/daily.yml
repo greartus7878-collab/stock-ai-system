@@ -1,4 +1,4 @@
-name: Stock AI Quant Daily
+name: Stock AI Live Trading
 
 on:
   workflow_dispatch:
@@ -17,8 +17,11 @@ jobs:
       - name: Install Packages
         run: pip install -r requirements.txt
 
-      - name: Run ETF Rotation
-        run: python strategy/real_etf_rotation.py
+      - name: ETF Rotation
+        run: python strategy/live_etf_rotation.py
 
-      - name: Run Daily Report
-        run: python strategy/daily_report.py
+      - name: Position Control
+        run: python strategy/position_control.py
+
+      - name: Trade Plan
+        run: python strategy/trade_plan.py
