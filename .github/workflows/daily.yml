@@ -1,0 +1,20 @@
+name: Stock AI Daily
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - run: python strategy/etf_rotation.py
+      - run: python strategy/market_score.py
+      - run: python strategy/risk_control.py
+      - run: python strategy/portfolio_advice.py
