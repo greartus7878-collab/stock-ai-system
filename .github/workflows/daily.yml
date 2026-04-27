@@ -1,4 +1,4 @@
-name: Stock AI Profit Boost
+name: Stock AI Ultimate
 
 on:
   workflow_dispatch:
@@ -9,7 +9,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
@@ -19,6 +18,9 @@ jobs:
       - run: python strategy/live_etf_rotation.py
       - run: python strategy/hot_sector.py
       - run: python strategy/top5_opportunity.py
+      - run: python strategy/stock_selector.py
       - run: python strategy/position_control.py
-      - run: python strategy/profit_guard.py
-      - run: python strategy/performance.py
+      - run: python strategy/risk_budget.py
+      - run: python strategy/tomorrow_plan.py
+      - run: python strategy/review.py
+      - run: python strategy/growth_path.py
