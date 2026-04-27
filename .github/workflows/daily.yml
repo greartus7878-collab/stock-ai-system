@@ -1,4 +1,4 @@
-name: Stock AI Ultimate
+name: Stock AI Pro Live
 
 on:
   workflow_dispatch:
@@ -15,12 +15,9 @@ jobs:
 
       - run: pip install -r requirements.txt
 
+      - run: python strategy/live_data.py
       - run: python strategy/live_etf_rotation.py
-      - run: python strategy/hot_sector.py
-      - run: python strategy/top5_opportunity.py
-      - run: python strategy/stock_selector.py
       - run: python strategy/position_control.py
-      - run: python strategy/risk_budget.py
-      - run: python strategy/tomorrow_plan.py
-      - run: python strategy/review.py
-      - run: python strategy/growth_path.py
+      - run: python strategy/rebalance.py
+      - run: python strategy/risk_alert.py
+      - run: python strategy/dashboard.py
