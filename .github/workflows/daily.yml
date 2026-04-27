@@ -1,4 +1,4 @@
-name: Stock AI Daily
+name: Stock AI Quant Daily
 
 on:
   workflow_dispatch:
@@ -14,7 +14,11 @@ jobs:
         with:
           python-version: '3.11'
 
-      - run: python strategy/etf_rotation.py
-      - run: python strategy/market_score.py
-      - run: python strategy/risk_control.py
-      - run: python strategy/portfolio_advice.py
+      - name: Install Packages
+        run: pip install -r requirements.txt
+
+      - name: Run ETF Rotation
+        run: python strategy/real_etf_rotation.py
+
+      - name: Run Daily Report
+        run: python strategy/daily_report.py
